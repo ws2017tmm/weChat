@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		08AEA2C41E6EB97300AC51BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2C31E6EB97300AC51BB /* main.m */; };
-		08AEA2C71E6EB97300AC51BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2C61E6EB97300AC51BB /* AppDelegate.m */; };
-		08AEA2CA1E6EB97300AC51BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2C91E6EB97300AC51BB /* ViewController.m */; };
-		08AEA2CD1E6EB97300AC51BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2CB1E6EB97300AC51BB /* Main.storyboard */; };
 		08AEA2CF1E6EB97300AC51BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */; };
 		08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2D01E6EB97300AC51BB /* LaunchScreen.storyboard */; };
 		08AEA2DD1E6EB97300AC51BB /* weChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2DC1E6EB97300AC51BB /* weChatTests.m */; };
 		08AEA2E81E6EB97300AC51BB /* weChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2E71E6EB97300AC51BB /* weChatUITests.m */; };
+		84CA719C1E703C0000A16A0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CA719B1E703C0000A16A0C /* Main.storyboard */; };
+		84CA71A11E703C0A00A16A0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA719E1E703C0A00A16A0C /* AppDelegate.m */; };
+		84CA71A21E703C0A00A16A0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA71A01E703C0A00A16A0C /* ViewController.m */; };
 		C43E7CD8070D794CE5B29573 /* Pods_weChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F1868820EC89D402EA1304 /* Pods_weChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,11 +39,6 @@
 		082F52CB1E6FD32800E6FD17 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		08AEA2BF1E6EB97300AC51BB /* weChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AEA2C31E6EB97300AC51BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		08AEA2C51E6EB97300AC51BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		08AEA2C61E6EB97300AC51BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		08AEA2C81E6EB97300AC51BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		08AEA2C91E6EB97300AC51BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		08AEA2CC1E6EB97300AC51BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08AEA2D11E6EB97300AC51BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08AEA2D31E6EB97300AC51BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +50,11 @@
 		08AEA2E91E6EB97300AC51BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F1868820EC89D402EA1304 /* Pods_weChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EFF6E06409C718063B8802 /* Pods-weChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-weChat/Pods-weChat.release.xcconfig"; sourceTree = "<group>"; };
+		84CA719B1E703C0000A16A0C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = main/Main.storyboard; sourceTree = "<group>"; };
+		84CA719D1E703C0A00A16A0C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84CA719E1E703C0A00A16A0C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84CA719F1E703C0A00A16A0C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		84CA71A01E703C0A00A16A0C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		94311BFA015A70BAC84A42EB /* Pods-weChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weChat/Pods-weChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,11 +118,7 @@
 		08AEA2C11E6EB97300AC51BB /* weChat */ = {
 			isa = PBXGroup;
 			children = (
-				08AEA2C51E6EB97300AC51BB /* AppDelegate.h */,
-				08AEA2C61E6EB97300AC51BB /* AppDelegate.m */,
-				08AEA2C81E6EB97300AC51BB /* ViewController.h */,
-				08AEA2C91E6EB97300AC51BB /* ViewController.m */,
-				08AEA2CB1E6EB97300AC51BB /* Main.storyboard */,
+				84CA71961E703A7900A16A0C /* Classes */,
 				08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */,
 				08AEA2D01E6EB97300AC51BB /* LaunchScreen.storyboard */,
 				08AEA2D31E6EB97300AC51BB /* Info.plist */,
@@ -156,6 +152,54 @@
 				08AEA2E91E6EB97300AC51BB /* Info.plist */,
 			);
 			path = weChatUITests;
+			sourceTree = "<group>";
+		};
+		84CA71961E703A7900A16A0C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				84CA719A1E703AD500A16A0C /* categories */,
+				84CA71991E703AC700A16A0C /* others */,
+				84CA71981E703ABC00A16A0C /* login */,
+				84CA71971E703AB000A16A0C /* main */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		84CA71971E703AB000A16A0C /* main */ = {
+			isa = PBXGroup;
+			children = (
+				84CA719B1E703C0000A16A0C /* Main.storyboard */,
+			);
+			name = main;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		84CA71981E703ABC00A16A0C /* login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = login;
+			path = Classes/login;
+			sourceTree = "<group>";
+		};
+		84CA71991E703AC700A16A0C /* others */ = {
+			isa = PBXGroup;
+			children = (
+				84CA719D1E703C0A00A16A0C /* AppDelegate.h */,
+				84CA719E1E703C0A00A16A0C /* AppDelegate.m */,
+				84CA719F1E703C0A00A16A0C /* ViewController.h */,
+				84CA71A01E703C0A00A16A0C /* ViewController.m */,
+			);
+			name = others;
+			path = Classes/others;
+			sourceTree = "<group>";
+		};
+		84CA719A1E703AD500A16A0C /* categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = categories;
+			path = Classes/categories;
 			sourceTree = "<group>";
 		};
 		A4AD6C9009BC43ED19EE7D00 /* Frameworks */ = {
@@ -273,9 +317,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CA719C1E703C0000A16A0C /* Main.storyboard in Resources */,
 				08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */,
 				08AEA2CF1E6EB97300AC51BB /* Assets.xcassets in Resources */,
-				08AEA2CD1E6EB97300AC51BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,8 +392,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08AEA2CA1E6EB97300AC51BB /* ViewController.m in Sources */,
-				08AEA2C71E6EB97300AC51BB /* AppDelegate.m in Sources */,
+				84CA71A21E703C0A00A16A0C /* ViewController.m in Sources */,
+				84CA71A11E703C0A00A16A0C /* AppDelegate.m in Sources */,
 				08AEA2C41E6EB97300AC51BB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,14 +430,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		08AEA2CB1E6EB97300AC51BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				08AEA2CC1E6EB97300AC51BB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		08AEA2D01E6EB97300AC51BB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -504,6 +540,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = XSUNT45.weChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -520,6 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = XSUNT45.weChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

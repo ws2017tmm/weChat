@@ -24,10 +24,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/**
- 
- /Users/xsunt45/Desktop/weChat/weChat/Pods/CocoaLumberjack/Classes/DDASLLogCapture.m:16:9: In file included from /Users/xsunt45/Desktop/weChat/weChat/Pods/CocoaLumberjack/Classes/DDASLLogCapture.m:16:
- 
- */
+
 
 @end
