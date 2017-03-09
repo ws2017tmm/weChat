@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 @import XMPPFramework;
+#import "WCNavController.h"
 
 /*
  * 在AppDelegate实现登录
@@ -20,6 +21,7 @@
 
 @interface AppDelegate ()<XMPPStreamDelegate> {
     XMPPStream *_xmppStream;
+    XMPPResultsBlock _resultBlock;
 }
 
 // 1. 初始化XMPPStream
@@ -119,6 +121,9 @@
 -(void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
     // 如果有错误，代表连接失败
     NSLog(@"与主机断开连接 %@",error);
+    if(error && _resultBlock){
+        _resultBlock(XMPPResultTypeNetErr);
+    }
     
 }
 
@@ -129,19 +134,23 @@
     
     [self sendOnlineToHost];
     
-    // 登录成功来到主界面
-    // 此方法是在子线程补调用，所以在主线程刷新UI
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        self.window.rootViewController = storyboard.instantiateInitialViewController;
-    });
+    // 回调控制器登录成功
+    if(_resultBlock){
+        _resultBlock(XMPPResultTypeLoginSuccess);
+    }
+    
     
 }
 
 
 #pragma mark 授权失败
 -(void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error{
+    
     NSLog(@"授权失败 %@",error);
+    // 判断block有无值，再回调给登录控制器
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeLoginFailure);
+    }
 }
 
 
@@ -155,17 +164,35 @@
     [_xmppStream disconnect];
 }
 
--(void)xmppUserLogin{
+-(void)xmppUserLogin:(XMPPResultsBlock)result{
+    _resultBlock = result;
     
+    // 如果以前连接过服务，要断开
+    [_xmppStream disconnect];
     // 连接主机 成功后发送密码
     [self connectToHost];
 }
 
-
+#pragma mark - 注销
+-(void)xmppUserlogout {
+    // 1." 发送 "离线" 消息"
+    XMPPPresence *offline = [XMPPPresence presenceWithType:@"unavailable"];
+    [_xmppStream sendElement:offline];
+    
+    // 2. 与服务器断开连接
+    [_xmppStream disconnect];
+    
+    // 3. 回到登录界面
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+    
+    self.window.rootViewController = storyboard.instantiateInitialViewController;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [WCNavController setupNavTheme];
+    
     return YES;
 }
 
