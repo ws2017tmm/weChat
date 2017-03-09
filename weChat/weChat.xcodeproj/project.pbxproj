@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		084184E51E70FF6F0039AC42 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 084184E41E70FF6F0039AC42 /* login.storyboard */; };
+		084184E81E70FFD00039AC42 /* WCOtherLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084184E71E70FFD00039AC42 /* WCOtherLoginController.m */; };
+		084184F61E7103140039AC42 /* UIButton+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 084184EB1E7103140039AC42 /* UIButton+WF.m */; };
+		084184F71E7103140039AC42 /* UIImage+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 084184ED1E7103140039AC42 /* UIImage+WF.m */; };
+		084184F81E7103140039AC42 /* UIScreen+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 084184EF1E7103140039AC42 /* UIScreen+WF.m */; };
+		084184F91E7103140039AC42 /* UIStoryboard+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 084184F11E7103140039AC42 /* UIStoryboard+WF.m */; };
+		084184FA1E7103140039AC42 /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 084184F31E7103140039AC42 /* UITextField+WF.m */; };
+		084184FB1E7103140039AC42 /* UIView+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 084184F51E7103140039AC42 /* UIView+WF.m */; };
 		08AEA2C41E6EB97300AC51BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2C31E6EB97300AC51BB /* main.m */; };
 		08AEA2CF1E6EB97300AC51BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */; };
 		08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2D01E6EB97300AC51BB /* LaunchScreen.storyboard */; };
@@ -37,6 +45,22 @@
 
 /* Begin PBXFileReference section */
 		082F52CB1E6FD32800E6FD17 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		084184E41E70FF6F0039AC42 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = controllers/login.storyboard; sourceTree = "<group>"; };
+		084184E61E70FFD00039AC42 /* WCOtherLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCOtherLoginController.h; sourceTree = "<group>"; };
+		084184E71E70FFD00039AC42 /* WCOtherLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCOtherLoginController.m; sourceTree = "<group>"; };
+		084184E91E7103140039AC42 /* CategoryWF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryWF.h; sourceTree = "<group>"; };
+		084184EA1E7103140039AC42 /* UIButton+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WF.h"; sourceTree = "<group>"; };
+		084184EB1E7103140039AC42 /* UIButton+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WF.m"; sourceTree = "<group>"; };
+		084184EC1E7103140039AC42 /* UIImage+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WF.h"; sourceTree = "<group>"; };
+		084184ED1E7103140039AC42 /* UIImage+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WF.m"; sourceTree = "<group>"; };
+		084184EE1E7103140039AC42 /* UIScreen+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+WF.h"; sourceTree = "<group>"; };
+		084184EF1E7103140039AC42 /* UIScreen+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+WF.m"; sourceTree = "<group>"; };
+		084184F01E7103140039AC42 /* UIStoryboard+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+WF.h"; sourceTree = "<group>"; };
+		084184F11E7103140039AC42 /* UIStoryboard+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+WF.m"; sourceTree = "<group>"; };
+		084184F21E7103140039AC42 /* UITextField+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+WF.h"; sourceTree = "<group>"; };
+		084184F31E7103140039AC42 /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
+		084184F41E7103140039AC42 /* UIView+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WF.h"; sourceTree = "<group>"; };
+		084184F51E7103140039AC42 /* UIView+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WF.m"; sourceTree = "<group>"; };
 		08AEA2BF1E6EB97300AC51BB /* weChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AEA2C31E6EB97300AC51BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +115,15 @@
 				35EFF6E06409C718063B8802 /* Pods-weChat.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		084184E31E70FE970039AC42 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				084184E61E70FFD00039AC42 /* WCOtherLoginController.h */,
+				084184E71E70FFD00039AC42 /* WCOtherLoginController.m */,
+			);
+			path = controllers;
 			sourceTree = "<group>";
 		};
 		08AEA2B61E6EB97300AC51BB = {
@@ -177,6 +210,8 @@
 		84CA71981E703ABC00A16A0C /* login */ = {
 			isa = PBXGroup;
 			children = (
+				084184E31E70FE970039AC42 /* controllers */,
+				084184E41E70FF6F0039AC42 /* login.storyboard */,
 			);
 			name = login;
 			path = Classes/login;
@@ -197,6 +232,19 @@
 		84CA719A1E703AD500A16A0C /* categories */ = {
 			isa = PBXGroup;
 			children = (
+				084184E91E7103140039AC42 /* CategoryWF.h */,
+				084184EA1E7103140039AC42 /* UIButton+WF.h */,
+				084184EB1E7103140039AC42 /* UIButton+WF.m */,
+				084184EC1E7103140039AC42 /* UIImage+WF.h */,
+				084184ED1E7103140039AC42 /* UIImage+WF.m */,
+				084184EE1E7103140039AC42 /* UIScreen+WF.h */,
+				084184EF1E7103140039AC42 /* UIScreen+WF.m */,
+				084184F01E7103140039AC42 /* UIStoryboard+WF.h */,
+				084184F11E7103140039AC42 /* UIStoryboard+WF.m */,
+				084184F21E7103140039AC42 /* UITextField+WF.h */,
+				084184F31E7103140039AC42 /* UITextField+WF.m */,
+				084184F41E7103140039AC42 /* UIView+WF.h */,
+				084184F51E7103140039AC42 /* UIView+WF.m */,
 			);
 			name = categories;
 			path = Classes/categories;
@@ -319,6 +367,7 @@
 			files = (
 				84CA719C1E703C0000A16A0C /* Main.storyboard in Resources */,
 				08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */,
+				084184E51E70FF6F0039AC42 /* login.storyboard in Resources */,
 				08AEA2CF1E6EB97300AC51BB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,9 +441,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084184F71E7103140039AC42 /* UIImage+WF.m in Sources */,
+				084184FB1E7103140039AC42 /* UIView+WF.m in Sources */,
+				084184FA1E7103140039AC42 /* UITextField+WF.m in Sources */,
+				084184E81E70FFD00039AC42 /* WCOtherLoginController.m in Sources */,
 				84CA71A21E703C0A00A16A0C /* ViewController.m in Sources */,
+				084184F91E7103140039AC42 /* UIStoryboard+WF.m in Sources */,
 				84CA71A11E703C0A00A16A0C /* AppDelegate.m in Sources */,
 				08AEA2C41E6EB97300AC51BB /* main.m in Sources */,
+				084184F61E7103140039AC42 /* UIButton+WF.m in Sources */,
+				084184F81E7103140039AC42 /* UIScreen+WF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

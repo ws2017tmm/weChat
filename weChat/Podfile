@@ -2,6 +2,7 @@ use_frameworks!
 platform :ios, '8.0'
 target 'weChat' do
 pod 'XMPPFramework', '~> 3.7.0'
+pod 'MBProgressHUD', '~> 1.0.0'
 end
 
 
