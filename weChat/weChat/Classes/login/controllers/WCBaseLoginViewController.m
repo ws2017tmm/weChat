@@ -79,6 +79,7 @@
                 [hud hideAnimated:YES afterDelay:1.2];
                 hud.label.text = @"网络不给力";
             }
+                break;
             default:
                 break;
         }

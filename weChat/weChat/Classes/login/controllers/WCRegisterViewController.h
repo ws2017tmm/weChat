@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WCRegisgerViewControllerDelegate <NSObject>
+
+/**
+ *  完成注册
+ */
+-(void)regisgerViewControllerDidFinishRegister;
+
+@end
+
+
 @interface WCRegisterViewController : UIViewController
+
+@property (nonatomic, weak) id<WCRegisgerViewControllerDelegate> delegate;
+
 
 @end

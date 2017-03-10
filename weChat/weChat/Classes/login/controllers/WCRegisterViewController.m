@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewWidth;
 
+- (IBAction)textChanged;
 
 @end
 
@@ -45,8 +46,6 @@
     
     
     
-    
-    
 }
 
 // 点击注册按钮
@@ -60,21 +59,80 @@
     // 2.调用AppDelegate的xmppUserRegister
     
     AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    
     app.registerOperation = YES;
+    
+    //隐藏键盘
+    [self.view endEditing:YES];
+    
+    // 登录之前给个提示
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.label.text = @"正在登录中...";
+    
+    //防止循环引用
+    __weak typeof(self) selfVc = self;
     [app xmppUserRegister:^(XMPPResultType type) {
-        
+        [selfVc handleResultType:type];
     }];
 }
+
+-(void)handleResultType:(XMPPResultType)type{
+    // 主线程刷新UI
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        switch (type) {
+            case XMPPResultTypeRegisterSuccess: //注册成功
+                NSLog(@"注册成功");
+                // 回到上个控制器
+                [self dismissViewControllerAnimated:YES completion:nil];
+                
+                if ([self.delegate respondsToSelector:@selector(regisgerViewControllerDidFinishRegister)]) {
+                    [self.delegate regisgerViewControllerDidFinishRegister];
+                }
+                break;
+            case XMPPResultTypeLoginFailure: { //注册失败
+                NSLog(@"注册失败");
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                // 隐藏时候从父控件中移除
+                hud.removeFromSuperViewOnHide = YES;
+                // 1.2秒之后再消失
+                [hud hideAnimated:YES afterDelay:1.2];
+                hud.label.text = @"用户已存在或者不正确";
+                
+            }
+                break;
+            case XMPPResultTypeNetErr: { //网络不好
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                // 隐藏时候从父控件中移除
+                hud.removeFromSuperViewOnHide = YES;
+                // 1.2秒之后再消失
+                [hud hideAnimated:YES afterDelay:1.2];
+                hud.label.text = @"网络不给力";
+            }
+                break;
+            default:
+                break;
+        }
+    });
+    
+}
+
 
 //取消注册
 - (IBAction)cancleRegister:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//检测文本框，判断注册按钮是否可以点击
+- (IBAction)textChanged {
+    // 设置注册按钮的可能状态
+    
+//    BOOL enabled = (self.userField.text.length != 0 && self.pwdField.text.length != 0);
+    BOOL enabled = self.userField.hasText && self.pwdField.hasText;
+    self.registerBtn.enabled = enabled;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 @end
