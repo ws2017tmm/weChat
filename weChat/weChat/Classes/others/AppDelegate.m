@@ -24,6 +24,7 @@
     // 从沙里加载用户的数据到单例
     [[WCUserInfo sharedWCUserInfo] loadUserInfoFromSanbox];
     
+    
     // 判断用户的登录状态，YES 直接来到主界面
     if([WCUserInfo sharedWCUserInfo].loginStatus){
         UIStoryboard *storayobard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
