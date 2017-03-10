@@ -1,5 +1,5 @@
 //
-//  WCLoginViewController.h
+//  WCRegisterViewController.h
 //  weChat
 //
 //  Created by XSUNT45 on 17/3/10.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WCBaseLoginViewController.h"
 
-@interface WCLoginViewController : WCBaseLoginViewController
+@interface WCRegisterViewController : UIViewController
 
 @end

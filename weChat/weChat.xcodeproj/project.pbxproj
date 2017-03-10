@@ -17,6 +17,8 @@
 		084184FB1E7103140039AC42 /* UIView+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 084184F51E7103140039AC42 /* UIView+WF.m */; };
 		0865F4BB1E724262003D6594 /* WCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0865F4BA1E724262003D6594 /* WCLoginViewController.m */; };
 		0865F4C61E724FA9003D6594 /* WCUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0865F4C41E724FA9003D6594 /* WCUserInfo.m */; };
+		0865F4C91E72571E003D6594 /* WCBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0865F4C81E72571E003D6594 /* WCBaseLoginViewController.m */; };
+		0865F4CC1E7277C2003D6594 /* WCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0865F4CB1E7277C2003D6594 /* WCRegisterViewController.m */; };
 		08AEA2C41E6EB97300AC51BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2C31E6EB97300AC51BB /* main.m */; };
 		08AEA2CF1E6EB97300AC51BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */; };
 		08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2D01E6EB97300AC51BB /* LaunchScreen.storyboard */; };
@@ -70,6 +72,10 @@
 		0865F4BF1E724F54003D6594 /* WSSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSSingleton.h; sourceTree = "<group>"; };
 		0865F4C31E724FA9003D6594 /* WCUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCUserInfo.h; sourceTree = "<group>"; };
 		0865F4C41E724FA9003D6594 /* WCUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCUserInfo.m; sourceTree = "<group>"; };
+		0865F4C71E72571E003D6594 /* WCBaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseLoginViewController.h; sourceTree = "<group>"; };
+		0865F4C81E72571E003D6594 /* WCBaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseLoginViewController.m; sourceTree = "<group>"; };
+		0865F4CA1E7277C2003D6594 /* WCRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRegisterViewController.h; sourceTree = "<group>"; };
+		0865F4CB1E7277C2003D6594 /* WCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRegisterViewController.m; sourceTree = "<group>"; };
 		08AEA2BF1E6EB97300AC51BB /* weChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AEA2C31E6EB97300AC51BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,10 +139,14 @@
 		084184E31E70FE970039AC42 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0865F4C71E72571E003D6594 /* WCBaseLoginViewController.h */,
+				0865F4C81E72571E003D6594 /* WCBaseLoginViewController.m */,
 				084184E61E70FFD00039AC42 /* WCOtherLoginController.h */,
 				084184E71E70FFD00039AC42 /* WCOtherLoginController.m */,
 				0865F4B91E724262003D6594 /* WCLoginViewController.h */,
 				0865F4BA1E724262003D6594 /* WCLoginViewController.m */,
+				0865F4CA1E7277C2003D6594 /* WCRegisterViewController.h */,
+				0865F4CB1E7277C2003D6594 /* WCRegisterViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -499,6 +509,8 @@
 			files = (
 				084184F71E7103140039AC42 /* UIImage+WF.m in Sources */,
 				0865F4BB1E724262003D6594 /* WCLoginViewController.m in Sources */,
+				0865F4C91E72571E003D6594 /* WCBaseLoginViewController.m in Sources */,
+				0865F4CC1E7277C2003D6594 /* WCRegisterViewController.m in Sources */,
 				084184FB1E7103140039AC42 /* UIView+WF.m in Sources */,
 				084184FA1E7103140039AC42 /* UITextField+WF.m in Sources */,
 				8426B63D1E71C06D008D4278 /* WCMeTableViewController.m in Sources */,

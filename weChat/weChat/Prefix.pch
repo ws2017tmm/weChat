@@ -15,5 +15,6 @@
 
 #import "CategoryWF.h"
 @import MBProgressHUD;
+#import "WCUserInfo.h"
 
 #endif /* Prefix_pch */

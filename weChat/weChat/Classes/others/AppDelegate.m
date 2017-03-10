@@ -64,7 +64,12 @@
     //resource 标识用户登录的客户端 iphone android
     
     // 从沙盒获取用户名
-    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    NSString *user = nil;
+    if (self.isRegisterOperation) { //注册
+        user = [WCUserInfo sharedWCUserInfo].registerUser;
+    } else { //登录
+        user = [WCUserInfo sharedWCUserInfo].user;
+    }
     
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"teacher.local" resource:@"iphone" ];
     _xmppStream.myJID = myJID;
@@ -90,7 +95,7 @@
     NSError *err = nil;
     
     // 从沙盒里获取密码
-    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    NSString *pwd = [WCUserInfo sharedWCUserInfo].pwd;
     
     [_xmppStream authenticateWithPassword:pwd error:&err];
     if (err) {
@@ -114,8 +119,13 @@
 -(void)xmppStreamDidConnect:(XMPPStream *)sender{
     NSLog(@"与主机连接成功");
     
-    // 主机连接成功后，发送密码进行授权
-    [self sendPwdToHost];
+    if (self.isRegisterOperation) {//注册操作，发送注册的密码
+        NSString *pwd = [WCUserInfo sharedWCUserInfo].registerPwd;
+        [_xmppStream registerWithPassword:pwd error:nil];
+    }else{//登录操作
+        // 主机连接成功后，发送密码进行授权
+        [self sendPwdToHost];
+    }
 }
 #pragma mark  与主机断开连接
 -(void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
@@ -188,10 +198,38 @@
     self.window.rootViewController = storyboard.instantiateInitialViewController;
 }
 
+#pragma mark - 注册
+-(void)xmppUserRegister:(XMPPResultsBlock)resultBlock{
+    // 先把block存起来
+    _resultBlock = resultBlock;
+    
+    // 如果以前连接过服务，要断开
+    [_xmppStream disconnect];
+    
+    // 连接主机 成功后发送注册密码
+    [self connectToHost];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //设置导航栏样式
     [WCNavController setupNavTheme];
+    
+    // 从沙里加载用户的数据到单例
+    [[WCUserInfo sharedWCUserInfo] loadUserInfoFromSanbox];
+    
+    // 判断用户的登录状态，YES 直接来到主界面
+    if([WCUserInfo sharedWCUserInfo].loginStatus){
+        UIStoryboard *storayobard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = storayobard.instantiateInitialViewController;
+        
+        // 自动登录服务
+        [self xmppUserLogin:nil];
+    }
+    
+    
     
     return YES;
 }

@@ -11,6 +11,9 @@
 @interface WCLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
+@property (weak, nonatomic) IBOutlet UITextField *pwdField;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+
 - (IBAction)loginBtnClick;
 - (IBAction)registerBtnClick;
 - (IBAction)forgetPwdBtnClick;
@@ -28,8 +31,7 @@
     //设置用户名为上次登录的用户名
     
     //从沙盒获取用户名
-    NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
-    
+    NSString *userName = [WCUserInfo sharedWCUserInfo].user;
     self.userLabel.text = userName;
     
     
@@ -40,22 +42,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+#pragma mark - 登录
 - (IBAction)loginBtnClick {
+    // 保存数据到单例
+    
+    WCUserInfo *userInfo = [WCUserInfo sharedWCUserInfo];
+    userInfo.user = self.userLabel.text;
+    userInfo.pwd = self.pwdField.text;
+    
+    // 调用父类的登录
+    [self login];
 }
 
+#pragma mark - 注册
 - (IBAction)registerBtnClick {
 }
 
+#pragma mark - 忘记密码
 - (IBAction)forgetPwdBtnClick {
 }
 @end
