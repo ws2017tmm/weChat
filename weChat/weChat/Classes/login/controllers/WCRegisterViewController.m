@@ -58,8 +58,8 @@
     
     // 2.调用AppDelegate的xmppUserRegister
     
-    AppDelegate *app = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    app.registerOperation = YES;
+    WCXMPPTool *tool = [WCXMPPTool sharedWCXMPPTool];
+    tool.registerOperation = YES;
     
     //隐藏键盘
     [self.view endEditing:YES];
@@ -70,7 +70,7 @@
     
     //防止循环引用
     __weak typeof(self) selfVc = self;
-    [app xmppUserRegister:^(XMPPResultType type) {
+    [tool xmppUserRegister:^(XMPPResultType type) {
         [selfVc handleResultType:type];
     }];
 }
