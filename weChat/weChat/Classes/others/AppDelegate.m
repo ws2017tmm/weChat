@@ -33,8 +33,6 @@
         [[WCXMPPTool sharedWCXMPPTool] xmppUserLogin:nil];
     }
     
-    
-    
     return YES;
 }
 
