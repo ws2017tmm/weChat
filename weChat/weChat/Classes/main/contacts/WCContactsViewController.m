@@ -111,6 +111,14 @@
     return cell;
 }
 
-
+//实现这个方法，cell往左滑就会有个delete
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        XMPPUserCoreDataStorageObject *friend = _resultsContrl.fetchedObjects[indexPath.row];
+        
+        XMPPJID *freindJid = friend.jid;
+        [[WCXMPPTool sharedWCXMPPTool].roster removeUser:freindJid];
+    }
+}
 
 @end
