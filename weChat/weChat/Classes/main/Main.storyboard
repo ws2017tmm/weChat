@@ -62,18 +62,34 @@
         <!--通讯录-->
         <scene sceneID="WVn-kj-nwY">
             <objects>
-                <tableViewController id="sMR-Pd-Pwb" sceneMemberID="viewController">
+                <tableViewController id="sMR-Pd-Pwb" customClass="WCContactsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6cE-P6-eha">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_id" id="8bR-J6-HgV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="1I9-os-ofg" detailTextLabel="LlT-BE-Gfh" style="IBUITableViewCellStyleSubtitle" id="8bR-J6-HgV">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8bR-J6-HgV" id="xTH-5S-FnL">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1I9-os-ofg">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LlT-BE-Gfh">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -82,11 +98,74 @@
                             <outlet property="delegate" destination="sMR-Pd-Pwb" id="Hsw-7h-qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="通讯录" id="wS2-Wr-vvn"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="wS2-Wr-vvn">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ewC-2X-SFf">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="t3m-Er-7SU">
+                                <rect key="frame" x="319" y="7" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="contacts_add_friend"/>
+                                <connections>
+                                    <segue destination="u9D-m5-egU" kind="show" id="gpF-os-l20"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSA-lV-QJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="748" y="-976"/>
+        </scene>
+        <!--添加联系人-->
+        <scene sceneID="oey-Ud-oWi">
+            <objects>
+                <tableViewController id="u9D-m5-egU" userLabel="添加联系人" customClass="WCAddContactsViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="VVw-Fz-LXM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="vKz-rF-AAv">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="9uv-3s-aPE">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9uv-3s-aPE" id="Cf8-yL-mgR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jML-1x-une">
+                                                    <rect key="frame" x="5" y="0.0" width="370" height="43"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="u9D-m5-egU" id="6hL-D8-TNi"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="jML-1x-une" secondAttribute="trailing" id="Eg0-HJ-TCP"/>
+                                                <constraint firstAttribute="bottom" secondItem="jML-1x-une" secondAttribute="bottom" id="QJu-yM-AQg"/>
+                                                <constraint firstItem="jML-1x-une" firstAttribute="leading" secondItem="Cf8-yL-mgR" secondAttribute="leading" constant="5" id="hNW-eE-ck3"/>
+                                                <constraint firstItem="jML-1x-une" firstAttribute="top" secondItem="Cf8-yL-mgR" secondAttribute="top" id="lBO-kB-8DP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="u9D-m5-egU" id="HIa-db-4wk"/>
+                            <outlet property="delegate" destination="u9D-m5-egU" id="rLe-eS-7FF"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="textField" destination="jML-1x-une" id="Rhj-vd-496"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="80i-JV-us6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1532" y="-994"/>
         </scene>
         <!--发现-->
         <scene sceneID="CHQ-Fe-iuy">
@@ -552,6 +631,7 @@
     </scenes>
     <resources>
         <image name="DefaultProfileHead" width="66" height="66"/>
+        <image name="contacts_add_friend" width="28" height="30"/>
         <image name="tabbar_contacts" width="27" height="23"/>
         <image name="tabbar_contactsHL" width="27" height="23"/>
         <image name="tabbar_discover" width="23" height="23"/>

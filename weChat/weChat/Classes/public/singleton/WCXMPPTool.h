@@ -30,11 +30,12 @@ WSSingletonH(WCXMPPTool)
 /**
  *  注册标识 YES 注册 / NO 登录
  */
-@property (nonatomic, assign,getter=isRegisterOperation) BOOL  registerOperation;//注册操作
+@property (nonatomic, assign,getter=isRegisterOperation) BOOL  registerOperation;
 
-
+@property (nonatomic, strong)XMPPStream *xmppStream;
+@property (nonatomic, strong)XMPPRoster *roster;//花名册模块
 @property (nonatomic, strong) XMPPvCardTempModule *vCard;//电子名片
-
+@property (nonatomic, strong)XMPPRosterCoreDataStorage *rosterStorage;//花名册数据存储
 
 
 

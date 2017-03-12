@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "WSSingleton.h"
 
+static NSString *domain = @"192.168.1.108";
+
 @interface WCUserInfo : NSObject
 
 WSSingletonH(WCUserInfo)
@@ -18,6 +20,8 @@ WSSingletonH(WCUserInfo)
 
 @property (nonatomic, copy) NSString *registerUser;//注册的用户名
 @property (nonatomic, copy) NSString *registerPwd;//注册的密码
+
+@property (nonatomic, copy) NSString *jid;//用户的jid
 
 /**
  *  登录的状态 YES 登录过/NO 注销

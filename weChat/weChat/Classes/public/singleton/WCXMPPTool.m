@@ -19,13 +19,13 @@
  */
 
 @interface WCXMPPTool ()<XMPPStreamDelegate> {
-    XMPPStream *_xmppStream;
     XMPPResultsBlock _resultBlock;
     
     XMPPvCardCoreDataStorage *_vCardStorage;//电子名片的数据存储
     XMPPvCardAvatarModule *_avatar;//头像模块
     
     XMPPReconnect *_reconnect; //自动连接模块
+    
 }
 
 // 1. 初始化XMPPStream
@@ -69,6 +69,11 @@ WSSingletonM(WCXMPPTool)
     //添加自动连接模块
     _reconnect = [[XMPPReconnect alloc] init];
     [_reconnect activate:_xmppStream];
+    
+    // 添加花名册模块【获取好友列表】
+    _rosterStorage = [[XMPPRosterCoreDataStorage alloc] init];
+    _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
+    [_roster activate:_xmppStream];
     
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -266,6 +271,7 @@ WSSingletonM(WCXMPPTool)
     [_reconnect deactivate];
     [_vCard deactivate];
     [_avatar deactivate];
+    [_roster deactivate];
     
     //断开链接
     [_xmppStream disconnect];
@@ -275,6 +281,8 @@ WSSingletonM(WCXMPPTool)
     _vCard = nil;
     _vCardStorage = nil;
     _avatar = nil;
+    _roster = nil;
+    _rosterStorage = nil;
     _xmppStream = nil;
     
 }

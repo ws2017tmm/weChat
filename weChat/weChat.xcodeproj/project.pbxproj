@@ -29,6 +29,8 @@
 		84B92B8C1E73A191007947AF /* WCNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92B8B1E73A191007947AF /* WCNavController.m */; };
 		84B92B8F1E73B10E007947AF /* WCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92B8E1E73B10E007947AF /* WCProfileViewController.m */; };
 		84B92B921E73DDB6007947AF /* WCEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92B911E73DDB6007947AF /* WCEditProfileViewController.m */; };
+		84B92B991E74F296007947AF /* WCContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92B981E74F296007947AF /* WCContactsViewController.m */; };
+		84B92B9C1E751B55007947AF /* WCAddContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92B9B1E751B55007947AF /* WCAddContactsViewController.m */; };
 		84CA719C1E703C0000A16A0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CA719B1E703C0000A16A0C /* Main.storyboard */; };
 		84CA71A11E703C0A00A16A0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA719E1E703C0A00A16A0C /* AppDelegate.m */; };
 		84CA71A21E703C0A00A16A0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA71A01E703C0A00A16A0C /* ViewController.m */; };
@@ -102,6 +104,10 @@
 		84B92B8E1E73B10E007947AF /* WCProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCProfileViewController.m; sourceTree = "<group>"; };
 		84B92B901E73DDB6007947AF /* WCEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCEditProfileViewController.h; sourceTree = "<group>"; };
 		84B92B911E73DDB6007947AF /* WCEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCEditProfileViewController.m; sourceTree = "<group>"; };
+		84B92B971E74F296007947AF /* WCContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCContactsViewController.h; sourceTree = "<group>"; };
+		84B92B981E74F296007947AF /* WCContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCContactsViewController.m; sourceTree = "<group>"; };
+		84B92B9A1E751B55007947AF /* WCAddContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCAddContactsViewController.h; sourceTree = "<group>"; };
+		84B92B9B1E751B55007947AF /* WCAddContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCAddContactsViewController.m; sourceTree = "<group>"; };
 		84CA719B1E703C0000A16A0C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = main/Main.storyboard; sourceTree = "<group>"; };
 		84CA719D1E703C0A00A16A0C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84CA719E1E703C0A00A16A0C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -266,6 +272,18 @@
 			path = NavController;
 			sourceTree = "<group>";
 		};
+		84B92B961E74F24D007947AF /* contacts */ = {
+			isa = PBXGroup;
+			children = (
+				84B92B971E74F296007947AF /* WCContactsViewController.h */,
+				84B92B981E74F296007947AF /* WCContactsViewController.m */,
+				84B92B9A1E751B55007947AF /* WCAddContactsViewController.h */,
+				84B92B9B1E751B55007947AF /* WCAddContactsViewController.m */,
+			);
+			name = contacts;
+			path = main/contacts;
+			sourceTree = "<group>";
+		};
 		84CA71961E703A7900A16A0C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				8426B63A1E71BFFA008D4278 /* me */,
+				84B92B961E74F24D007947AF /* contacts */,
 				84CA719B1E703C0000A16A0C /* Main.storyboard */,
 			);
 			name = main;
@@ -525,12 +544,14 @@
 				84B92B921E73DDB6007947AF /* WCEditProfileViewController.m in Sources */,
 				084184F71E7103140039AC42 /* UIImage+WF.m in Sources */,
 				0865F4BB1E724262003D6594 /* WCLoginViewController.m in Sources */,
+				84B92B9C1E751B55007947AF /* WCAddContactsViewController.m in Sources */,
 				84B92B8F1E73B10E007947AF /* WCProfileViewController.m in Sources */,
 				0865F4C91E72571E003D6594 /* WCBaseLoginViewController.m in Sources */,
 				0865F4CC1E7277C2003D6594 /* WCRegisterViewController.m in Sources */,
 				084184FB1E7103140039AC42 /* UIView+WF.m in Sources */,
 				084184FA1E7103140039AC42 /* UITextField+WF.m in Sources */,
 				0865F4CF1E72A1F4003D6594 /* WCXMPPTool.m in Sources */,
+				84B92B991E74F296007947AF /* WCContactsViewController.m in Sources */,
 				8426B63D1E71C06D008D4278 /* WCMeTableViewController.m in Sources */,
 				084184E81E70FFD00039AC42 /* WCOtherLoginController.m in Sources */,
 				84CA71A21E703C0A00A16A0C /* ViewController.m in Sources */,

@@ -12,6 +12,7 @@
 #define PwdKey @"pwd"
 
 
+
 @implementation WCUserInfo
 
 WSSingletonM(WCUserInfo)
@@ -32,6 +33,10 @@ WSSingletonM(WCUserInfo)
     self.user = [defaults objectForKey:UserKey];
     self.loginStatus = [defaults boolForKey:LoginStatusKey];
     self.pwd = [defaults objectForKey:PwdKey];
+}
+
+-(NSString *)jid{
+    return [NSString stringWithFormat:@"%@@%@",self.user,domain];
 }
 
 @end
