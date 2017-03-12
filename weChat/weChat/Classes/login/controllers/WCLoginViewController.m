@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UITextField *pwdField;
+- (IBAction)pwdFieldTextChange;
+
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 - (IBAction)loginBtnClick;
@@ -66,9 +68,11 @@
     if ([destVc isKindOfClass:[WCNavController class]]) {
         WCNavController *nav = destVc;
         //获取根控制器
-        WCRegisterViewController *registerVc =  (WCRegisterViewController *)nav.topViewController;
-        // 设置注册控制器的代理
-        registerVc.delegate = self;
+        WCRegisterViewController *registerVc =  (WCRegisterViewController *)nav.visibleViewController;
+        if ([registerVc isKindOfClass:[WCRegisterViewController class]]) {
+            // 设置注册控制器的代理
+            registerVc.delegate = self;
+        }
     }
     
 }
@@ -98,5 +102,9 @@
 
 #pragma mark - 忘记密码
 - (IBAction)forgetPwdBtnClick {
+}
+#pragma mark - 输入密码按钮才可以点击
+- (IBAction)pwdFieldTextChange {
+    self.loginBtn.enabled = self.pwdField.hasText;
 }
 @end

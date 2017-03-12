@@ -42,6 +42,7 @@
     hud.label.text = @"正在登录中...";
     
     WCXMPPTool *tool = [WCXMPPTool sharedWCXMPPTool];
+    tool.registerOperation = NO;//登录
     //防止循环引用
     __weak typeof(self) selfVc = self;
     [tool xmppUserLogin:^(XMPPResultType type) {
@@ -89,6 +90,12 @@
 
 // 登录成功
 -(void)enterMainPage{
+    // 更改用户的登录状态为YES
+    [WCUserInfo sharedWCUserInfo].loginStatus = YES;
+    
+    // 把用户登录成功的数据，保存到沙盒
+    [[WCUserInfo sharedWCUserInfo] saveUserInfoToSanbox];
+    
     // 隐藏模态窗口
     [self dismissViewControllerAnimated:NO completion:nil];
     

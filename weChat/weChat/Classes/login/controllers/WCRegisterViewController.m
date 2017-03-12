@@ -66,7 +66,7 @@
     
     // 登录之前给个提示
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.label.text = @"正在登录中...";
+    hud.label.text = @"正在注册中...";
     
     //防止循环引用
     __weak typeof(self) selfVc = self;
@@ -89,7 +89,7 @@
                     [self.delegate regisgerViewControllerDidFinishRegister];
                 }
                 break;
-            case XMPPResultTypeLoginFailure: { //注册失败
+            case XMPPResultTypeRegisterFailure: { //注册失败
                 NSLog(@"注册失败");
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 // 隐藏时候从父控件中移除

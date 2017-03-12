@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-@import XMPPFramework;
+@import CocoaLumberjack;
 #import "WCNavController.h"
 
 
@@ -17,6 +17,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // 沙盒的路径
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSLog(@"%@",path);
+    
+//    setenv("XcodeColors", "YES", 0);//XcodeColors插件输出颜色不变
+    static const int ddLogLevel = DDLogLevelVerbose;//定义日志级别
+    
+    
+    [DDLog addLogger:[DDTTYLogger sharedInstance]]; // TTY = Xcode console
+    [DDLog addLogger:[DDASLLogger sharedInstance]]; // ASL = Apple System Logs
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];// 启用颜色区分
+    
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    [DDLog addLogger:fileLogger];
+    
+    DDLogVerbose(@"Verbose");    // gray
+    DDLogDebug(@"Debug");        // green
+    DDLogInfo(@"Info");          // pink
+    DDLogWarn(@"Warn");          // orange
+    DDLogError(@"Error");        // red
+    
+    
+    
     
     //设置导航栏样式
     [WCNavController setupNavTheme];

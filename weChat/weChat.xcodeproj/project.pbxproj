@@ -25,8 +25,10 @@
 		08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2D01E6EB97300AC51BB /* LaunchScreen.storyboard */; };
 		08AEA2DD1E6EB97300AC51BB /* weChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2DC1E6EB97300AC51BB /* weChatTests.m */; };
 		08AEA2E81E6EB97300AC51BB /* weChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2E71E6EB97300AC51BB /* weChatUITests.m */; };
-		8426B6391E71AE66008D4278 /* WCNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426B6381E71AE66008D4278 /* WCNavController.m */; };
 		8426B63D1E71C06D008D4278 /* WCMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8426B63C1E71C06D008D4278 /* WCMeTableViewController.m */; };
+		84B92B8C1E73A191007947AF /* WCNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92B8B1E73A191007947AF /* WCNavController.m */; };
+		84B92B8F1E73B10E007947AF /* WCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92B8E1E73B10E007947AF /* WCProfileViewController.m */; };
+		84B92B921E73DDB6007947AF /* WCEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B92B911E73DDB6007947AF /* WCEditProfileViewController.m */; };
 		84CA719C1E703C0000A16A0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CA719B1E703C0000A16A0C /* Main.storyboard */; };
 		84CA71A11E703C0A00A16A0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA719E1E703C0A00A16A0C /* AppDelegate.m */; };
 		84CA71A21E703C0A00A16A0C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA71A01E703C0A00A16A0C /* ViewController.m */; };
@@ -92,10 +94,14 @@
 		08AEA2E91E6EB97300AC51BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F1868820EC89D402EA1304 /* Pods_weChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EFF6E06409C718063B8802 /* Pods-weChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-weChat/Pods-weChat.release.xcconfig"; sourceTree = "<group>"; };
-		8426B6371E71AE66008D4278 /* WCNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WCNavController.h; path = ../WCNavController.h; sourceTree = "<group>"; };
-		8426B6381E71AE66008D4278 /* WCNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCNavController.m; path = ../WCNavController.m; sourceTree = "<group>"; };
 		8426B63B1E71C06D008D4278 /* WCMeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCMeTableViewController.h; sourceTree = "<group>"; };
 		8426B63C1E71C06D008D4278 /* WCMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCMeTableViewController.m; sourceTree = "<group>"; };
+		84B92B8A1E73A191007947AF /* WCNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCNavController.h; sourceTree = "<group>"; };
+		84B92B8B1E73A191007947AF /* WCNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCNavController.m; sourceTree = "<group>"; };
+		84B92B8D1E73B10E007947AF /* WCProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCProfileViewController.h; sourceTree = "<group>"; };
+		84B92B8E1E73B10E007947AF /* WCProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCProfileViewController.m; sourceTree = "<group>"; };
+		84B92B901E73DDB6007947AF /* WCEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCEditProfileViewController.h; sourceTree = "<group>"; };
+		84B92B911E73DDB6007947AF /* WCEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCEditProfileViewController.m; sourceTree = "<group>"; };
 		84CA719B1E703C0000A16A0C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = main/Main.storyboard; sourceTree = "<group>"; };
 		84CA719D1E703C0A00A16A0C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84CA719E1E703C0A00A16A0C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -152,15 +158,6 @@
 				0865F4CB1E7277C2003D6594 /* WCRegisterViewController.m */,
 			);
 			path = controllers;
-			sourceTree = "<group>";
-		};
-		0865F4BC1E724DBE003D6594 /* NavController */ = {
-			isa = PBXGroup;
-			children = (
-				8426B6371E71AE66008D4278 /* WCNavController.h */,
-				8426B6381E71AE66008D4278 /* WCNavController.m */,
-			);
-			path = NavController;
 			sourceTree = "<group>";
 		};
 		0865F4BE1E724DEF003D6594 /* singleton */ = {
@@ -240,7 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				0865F4BE1E724DEF003D6594 /* singleton */,
-				0865F4BC1E724DBE003D6594 /* NavController */,
+				84B92B891E73A172007947AF /* NavController */,
 			);
 			name = public;
 			path = Classes/public;
@@ -251,9 +248,22 @@
 			children = (
 				8426B63B1E71C06D008D4278 /* WCMeTableViewController.h */,
 				8426B63C1E71C06D008D4278 /* WCMeTableViewController.m */,
+				84B92B8D1E73B10E007947AF /* WCProfileViewController.h */,
+				84B92B8E1E73B10E007947AF /* WCProfileViewController.m */,
+				84B92B901E73DDB6007947AF /* WCEditProfileViewController.h */,
+				84B92B911E73DDB6007947AF /* WCEditProfileViewController.m */,
 			);
 			name = me;
 			path = main/me;
+			sourceTree = "<group>";
+		};
+		84B92B891E73A172007947AF /* NavController */ = {
+			isa = PBXGroup;
+			children = (
+				84B92B8A1E73A191007947AF /* WCNavController.h */,
+				84B92B8B1E73A191007947AF /* WCNavController.m */,
+			);
+			path = NavController;
 			sourceTree = "<group>";
 		};
 		84CA71961E703A7900A16A0C /* Classes */ = {
@@ -512,21 +522,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B92B921E73DDB6007947AF /* WCEditProfileViewController.m in Sources */,
 				084184F71E7103140039AC42 /* UIImage+WF.m in Sources */,
 				0865F4BB1E724262003D6594 /* WCLoginViewController.m in Sources */,
+				84B92B8F1E73B10E007947AF /* WCProfileViewController.m in Sources */,
 				0865F4C91E72571E003D6594 /* WCBaseLoginViewController.m in Sources */,
 				0865F4CC1E7277C2003D6594 /* WCRegisterViewController.m in Sources */,
 				084184FB1E7103140039AC42 /* UIView+WF.m in Sources */,
 				084184FA1E7103140039AC42 /* UITextField+WF.m in Sources */,
 				0865F4CF1E72A1F4003D6594 /* WCXMPPTool.m in Sources */,
 				8426B63D1E71C06D008D4278 /* WCMeTableViewController.m in Sources */,
-				8426B6391E71AE66008D4278 /* WCNavController.m in Sources */,
 				084184E81E70FFD00039AC42 /* WCOtherLoginController.m in Sources */,
 				84CA71A21E703C0A00A16A0C /* ViewController.m in Sources */,
 				084184F91E7103140039AC42 /* UIStoryboard+WF.m in Sources */,
 				84CA71A11E703C0A00A16A0C /* AppDelegate.m in Sources */,
 				08AEA2C41E6EB97300AC51BB /* main.m in Sources */,
 				0865F4C61E724FA9003D6594 /* WCUserInfo.m in Sources */,
+				84B92B8C1E73A191007947AF /* WCNavController.m in Sources */,
 				084184F61E7103140039AC42 /* UIButton+WF.m in Sources */,
 				084184F81E7103140039AC42 /* UIScreen+WF.m in Sources */,
 			);

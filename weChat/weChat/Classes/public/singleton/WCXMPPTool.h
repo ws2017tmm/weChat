@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WSSingleton.h"
+@import XMPPFramework;
 
 typedef enum {
     XMPPResultTypeLoginSuccess,//登录成功
@@ -30,6 +31,10 @@ WSSingletonH(WCXMPPTool)
  *  注册标识 YES 注册 / NO 登录
  */
 @property (nonatomic, assign,getter=isRegisterOperation) BOOL  registerOperation;//注册操作
+
+
+@property (nonatomic, strong) XMPPvCardTempModule *vCard;//电子名片
+
 
 
 
