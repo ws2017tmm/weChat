@@ -200,7 +200,6 @@
     
     XMPPMessage *msg = [XMPPMessage messageWithType:@"chat" to:self.friendJid];
     
-    
     // 设置内容
     [msg addBody:text];
     NSLog(@"%@",msg);
