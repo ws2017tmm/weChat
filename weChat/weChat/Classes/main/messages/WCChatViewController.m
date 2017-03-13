@@ -188,6 +188,7 @@
         //清空数据
         textView.text = nil;
         
+        
     }else{
         NSLog(@"%@",textView.text);
         
