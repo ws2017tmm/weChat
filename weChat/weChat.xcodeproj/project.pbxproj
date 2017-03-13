@@ -20,6 +20,10 @@
 		0865F4C91E72571E003D6594 /* WCBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0865F4C81E72571E003D6594 /* WCBaseLoginViewController.m */; };
 		0865F4CC1E7277C2003D6594 /* WCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0865F4CB1E7277C2003D6594 /* WCRegisterViewController.m */; };
 		0865F4CF1E72A1F4003D6594 /* WCXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0865F4CE1E72A1F4003D6594 /* WCXMPPTool.m */; };
+		08727A1B1E763A26007E40B5 /* WCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08727A1A1E763A26007E40B5 /* WCChatViewController.m */; };
+		08727A1E1E763B70007E40B5 /* WCMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08727A1D1E763B70007E40B5 /* WCMessagesViewController.m */; };
+		08727A231E767CE3007E40B5 /* WCInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08727A211E767CE3007E40B5 /* WCInputView.m */; };
+		08727A241E767CE3007E40B5 /* WCInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08727A221E767CE3007E40B5 /* WCInputView.xib */; };
 		08AEA2C41E6EB97300AC51BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2C31E6EB97300AC51BB /* main.m */; };
 		08AEA2CF1E6EB97300AC51BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */; };
 		08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2D01E6EB97300AC51BB /* LaunchScreen.storyboard */; };
@@ -83,6 +87,13 @@
 		0865F4CB1E7277C2003D6594 /* WCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRegisterViewController.m; sourceTree = "<group>"; };
 		0865F4CD1E72A1F4003D6594 /* WCXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCXMPPTool.h; sourceTree = "<group>"; };
 		0865F4CE1E72A1F4003D6594 /* WCXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCXMPPTool.m; sourceTree = "<group>"; };
+		08727A191E763A26007E40B5 /* WCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCChatViewController.h; sourceTree = "<group>"; };
+		08727A1A1E763A26007E40B5 /* WCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCChatViewController.m; sourceTree = "<group>"; };
+		08727A1C1E763B70007E40B5 /* WCMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCMessagesViewController.h; sourceTree = "<group>"; };
+		08727A1D1E763B70007E40B5 /* WCMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCMessagesViewController.m; sourceTree = "<group>"; };
+		08727A201E767CE3007E40B5 /* WCInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCInputView.h; sourceTree = "<group>"; };
+		08727A211E767CE3007E40B5 /* WCInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCInputView.m; sourceTree = "<group>"; };
+		08727A221E767CE3007E40B5 /* WCInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCInputView.xib; sourceTree = "<group>"; };
 		08AEA2BF1E6EB97300AC51BB /* weChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AEA2C31E6EB97300AC51BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,6 +187,29 @@
 				0865F4CE1E72A1F4003D6594 /* WCXMPPTool.m */,
 			);
 			path = singleton;
+			sourceTree = "<group>";
+		};
+		08727A181E7637B6007E40B5 /* messages */ = {
+			isa = PBXGroup;
+			children = (
+				08727A1C1E763B70007E40B5 /* WCMessagesViewController.h */,
+				08727A1D1E763B70007E40B5 /* WCMessagesViewController.m */,
+				08727A191E763A26007E40B5 /* WCChatViewController.h */,
+				08727A1A1E763A26007E40B5 /* WCChatViewController.m */,
+			);
+			name = messages;
+			path = main/messages;
+			sourceTree = "<group>";
+		};
+		08727A1F1E767CBF007E40B5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				08727A201E767CE3007E40B5 /* WCInputView.h */,
+				08727A211E767CE3007E40B5 /* WCInputView.m */,
+				08727A221E767CE3007E40B5 /* WCInputView.xib */,
+			);
+			name = view;
+			path = main/view;
 			sourceTree = "<group>";
 		};
 		08AEA2B61E6EB97300AC51BB = {
@@ -299,6 +333,8 @@
 		84CA71971E703AB000A16A0C /* main */ = {
 			isa = PBXGroup;
 			children = (
+				08727A1F1E767CBF007E40B5 /* view */,
+				08727A181E7637B6007E40B5 /* messages */,
 				8426B63A1E71BFFA008D4278 /* me */,
 				84B92B961E74F24D007947AF /* contacts */,
 				84CA719B1E703C0000A16A0C /* Main.storyboard */,
@@ -465,6 +501,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08727A241E767CE3007E40B5 /* WCInputView.xib in Resources */,
 				84CA719C1E703C0000A16A0C /* Main.storyboard in Resources */,
 				08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */,
 				084184E51E70FF6F0039AC42 /* login.storyboard in Resources */,
@@ -541,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08727A1B1E763A26007E40B5 /* WCChatViewController.m in Sources */,
 				84B92B921E73DDB6007947AF /* WCEditProfileViewController.m in Sources */,
 				084184F71E7103140039AC42 /* UIImage+WF.m in Sources */,
 				0865F4BB1E724262003D6594 /* WCLoginViewController.m in Sources */,
@@ -552,6 +590,7 @@
 				084184FA1E7103140039AC42 /* UITextField+WF.m in Sources */,
 				0865F4CF1E72A1F4003D6594 /* WCXMPPTool.m in Sources */,
 				84B92B991E74F296007947AF /* WCContactsViewController.m in Sources */,
+				08727A1E1E763B70007E40B5 /* WCMessagesViewController.m in Sources */,
 				8426B63D1E71C06D008D4278 /* WCMeTableViewController.m in Sources */,
 				084184E81E70FFD00039AC42 /* WCOtherLoginController.m in Sources */,
 				84CA71A21E703C0A00A16A0C /* ViewController.m in Sources */,
@@ -560,6 +599,7 @@
 				08AEA2C41E6EB97300AC51BB /* main.m in Sources */,
 				0865F4C61E724FA9003D6594 /* WCUserInfo.m in Sources */,
 				84B92B8C1E73A191007947AF /* WCNavController.m in Sources */,
+				08727A231E767CE3007E40B5 /* WCInputView.m in Sources */,
 				084184F61E7103140039AC42 /* UIButton+WF.m in Sources */,
 				084184F81E7103140039AC42 /* UIScreen+WF.m in Sources */,
 			);

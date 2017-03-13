@@ -26,6 +26,8 @@
     
     XMPPReconnect *_reconnect; //自动连接模块
     
+    XMPPMessageArchiving *_msgArchiving;//聊天模块
+    
 }
 
 // 1. 初始化XMPPStream
@@ -74,6 +76,11 @@ WSSingletonM(WCXMPPTool)
     _rosterStorage = [[XMPPRosterCoreDataStorage alloc] init];
     _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
     [_roster activate:_xmppStream];
+    
+    // 添加聊天模块
+    _msgStorage = [[XMPPMessageArchivingCoreDataStorage alloc] init];
+    _msgArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_msgStorage];
+    [_msgArchiving activate:_xmppStream];
     
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -272,6 +279,7 @@ WSSingletonM(WCXMPPTool)
     [_vCard deactivate];
     [_avatar deactivate];
     [_roster deactivate];
+    [_msgArchiving deactivate];
     
     //断开链接
     [_xmppStream disconnect];
@@ -283,6 +291,8 @@ WSSingletonM(WCXMPPTool)
     _avatar = nil;
     _roster = nil;
     _rosterStorage = nil;
+    _msgArchiving = nil;
+    _msgStorage = nil;
     _xmppStream = nil;
     
 }
