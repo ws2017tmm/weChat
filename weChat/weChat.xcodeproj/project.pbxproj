@@ -23,7 +23,8 @@
 		08727A1B1E763A26007E40B5 /* WCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08727A1A1E763A26007E40B5 /* WCChatViewController.m */; };
 		08727A1E1E763B70007E40B5 /* WCMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08727A1D1E763B70007E40B5 /* WCMessagesViewController.m */; };
 		08727A231E767CE3007E40B5 /* WCInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08727A211E767CE3007E40B5 /* WCInputView.m */; };
-		08727A241E767CE3007E40B5 /* WCInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08727A221E767CE3007E40B5 /* WCInputView.xib */; };
+		088346D21E77CA8C00EB19A8 /* WCInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088346D11E77CA8C00EB19A8 /* WCInputView.xib */; };
+		088346D61E77CD1900EB19A8 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 088346D51E77CD1900EB19A8 /* HttpTool.m */; };
 		08AEA2C41E6EB97300AC51BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AEA2C31E6EB97300AC51BB /* main.m */; };
 		08AEA2CF1E6EB97300AC51BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */; };
 		08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AEA2D01E6EB97300AC51BB /* LaunchScreen.storyboard */; };
@@ -93,7 +94,9 @@
 		08727A1D1E763B70007E40B5 /* WCMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCMessagesViewController.m; sourceTree = "<group>"; };
 		08727A201E767CE3007E40B5 /* WCInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCInputView.h; sourceTree = "<group>"; };
 		08727A211E767CE3007E40B5 /* WCInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCInputView.m; sourceTree = "<group>"; };
-		08727A221E767CE3007E40B5 /* WCInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCInputView.xib; sourceTree = "<group>"; };
+		088346D11E77CA8C00EB19A8 /* WCInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WCInputView.xib; sourceTree = "<group>"; };
+		088346D41E77CD1900EB19A8 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
+		088346D51E77CD1900EB19A8 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		08AEA2BF1E6EB97300AC51BB /* weChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AEA2C31E6EB97300AC51BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08AEA2CE1E6EB97300AC51BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -206,10 +209,19 @@
 			children = (
 				08727A201E767CE3007E40B5 /* WCInputView.h */,
 				08727A211E767CE3007E40B5 /* WCInputView.m */,
-				08727A221E767CE3007E40B5 /* WCInputView.xib */,
+				088346D11E77CA8C00EB19A8 /* WCInputView.xib */,
 			);
 			name = view;
 			path = main/view;
+			sourceTree = "<group>";
+		};
+		088346D31E77CCED00EB19A8 /* HTTPTool */ = {
+			isa = PBXGroup;
+			children = (
+				088346D41E77CD1900EB19A8 /* HttpTool.h */,
+				088346D51E77CD1900EB19A8 /* HttpTool.m */,
+			);
+			path = HTTPTool;
 			sourceTree = "<group>";
 		};
 		08AEA2B61E6EB97300AC51BB = {
@@ -276,6 +288,7 @@
 		8426B6361E71ADF5008D4278 /* public */ = {
 			isa = PBXGroup;
 			children = (
+				088346D31E77CCED00EB19A8 /* HTTPTool */,
 				0865F4BE1E724DEF003D6594 /* singleton */,
 				84B92B891E73A172007947AF /* NavController */,
 			);
@@ -501,7 +514,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08727A241E767CE3007E40B5 /* WCInputView.xib in Resources */,
+				088346D21E77CA8C00EB19A8 /* WCInputView.xib in Resources */,
 				84CA719C1E703C0000A16A0C /* Main.storyboard in Resources */,
 				08AEA2D21E6EB97300AC51BB /* LaunchScreen.storyboard in Resources */,
 				084184E51E70FF6F0039AC42 /* login.storyboard in Resources */,
@@ -597,6 +610,7 @@
 				084184F91E7103140039AC42 /* UIStoryboard+WF.m in Sources */,
 				84CA71A11E703C0A00A16A0C /* AppDelegate.m in Sources */,
 				08AEA2C41E6EB97300AC51BB /* main.m in Sources */,
+				088346D61E77CD1900EB19A8 /* HttpTool.m in Sources */,
 				0865F4C61E724FA9003D6594 /* WCUserInfo.m in Sources */,
 				84B92B8C1E73A191007947AF /* WCNavController.m in Sources */,
 				08727A231E767CE3007E40B5 /* WCInputView.m in Sources */,

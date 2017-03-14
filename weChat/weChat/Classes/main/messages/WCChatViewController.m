@@ -8,8 +8,9 @@
 
 #import "WCChatViewController.h"
 #import "WCInputView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
-@interface WCChatViewController ()<UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate,UITextViewDelegate>{
+@interface WCChatViewController ()<UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>{
     
     NSFetchedResultsController *_resultsContrl;
     
@@ -18,9 +19,19 @@
 @property (nonatomic, strong) NSLayoutConstraint *inputViewConstraint;//inputView底部约束
 @property (nonatomic, weak) UITableView *tableView;
 
+@property (nonatomic, strong) HttpTool *httpTool;
+
 @end
 
 @implementation WCChatViewController
+
+-(HttpTool *)httpTool{
+    if (!_httpTool) {
+        _httpTool = [[HttpTool alloc] init];
+    }
+    
+    return _httpTool;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +53,6 @@
     // 代码方式实现自动布局 VFL
     // 创建一个Tableview;
     UITableView *tableView = [[UITableView alloc] init];
-    //tableView.backgroundColor = [UIColor redColor];
     tableView.delegate = self;
     tableView.dataSource = self;
 #warning 代码实现自动布局，要设置下面的属性为NO
@@ -55,6 +65,10 @@
     inputView.translatesAutoresizingMaskIntoConstraints = NO;
     // 设置TextView代理
     inputView.textView.delegate = self;
+    [self.view addSubview:inputView];
+    
+    // 添加按钮事件
+    [inputView.addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:inputView];
     
     // 自动布局
@@ -136,7 +150,7 @@
 
 #pragma mark - Table view data source
 
-#pragma mark -表格的数据源
+#pragma mark - 表格的数据源
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _resultsContrl.fetchedObjects.count;
 }
@@ -152,11 +166,22 @@
     // 获取聊天消息对象
     XMPPMessageArchiving_Message_CoreDataObject *msg =  _resultsContrl.fetchedObjects[indexPath.row];
     
-    //显示消息
-    if ([msg.outgoing boolValue]) {//自己发
-        cell.textLabel.text = [NSString stringWithFormat:@"Me: %@",msg.body];
-    }else{//别人发的
-        cell.textLabel.text = [NSString stringWithFormat:@"Other: %@",msg.body];
+    // 判断是图片还是纯文本
+    NSString *chatType = [msg.message attributeStringValueForName:@"bodyType"];
+    if ([chatType isEqualToString:@"image"]) {
+        //下图片显示
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:msg.body] placeholderImage:[UIImage imageNamed:@"DefaultProfileHead_qq"]];
+        cell.textLabel.text = nil;
+    }else if([chatType isEqualToString:@"text"]){
+        
+        //显示消息
+        if ([msg.outgoing boolValue]) {//自己发
+            cell.textLabel.text = msg.body;
+        }else{//别人发的
+            cell.textLabel.text = msg.body;
+        }
+        
+        cell.imageView.image = nil;
     }
     
     return cell;
@@ -176,10 +201,9 @@
     // 换行就等于点击了的send
     if ([text rangeOfString:@"\n"].length != 0) {
         NSLog(@"发送数据 %@",text);
-        [self sendMsgWithText:text];
+        [self sendMsgWithText:text bodyType:@"text"];
         //清空数据
         textView.text = nil;
-        
         
     }else{
         NSLog(@"%@",textView.text);
@@ -189,9 +213,13 @@
 
 
 #pragma mark 发送聊天消息
--(void)sendMsgWithText:(NSString *)text{
+-(void)sendMsgWithText:(NSString *)text bodyType:(NSString *)bodyType {
     
     XMPPMessage *msg = [XMPPMessage messageWithType:@"chat" to:self.friendJid];
+    
+    //text 纯文本
+    //image 图片
+    [msg addAttributeWithName:@"bodyType" stringValue:bodyType];
     
     // 设置内容
     [msg addBody:text];
@@ -207,5 +235,61 @@
     
     [self.tableView scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
+
+
+#pragma mark 选择图片
+-(void)addBtnClick{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.delegate = self;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    
+}
+
+#pragma mark 选取后图片的回调
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    NSLog(@"%@",info);
+    // 隐藏图片选择器的窗口
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // 获取图片
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // 把图片发送到文件服务器
+    //http post put
+    /**
+     * put实现文件上传没post那烦锁，而且比POST快
+     * put的文件上传路径就是下载路径
+     
+     *文件上传路径 http://localhost:8080/imfileserver/Upload/Image/ + "图片名【程序员自已定义】"
+     */
+    
+    // 1.取文件名 用户名 + 时间(201412111537)年月日时分秒
+    NSString *user = [WCUserInfo sharedWCUserInfo].user;
+    
+    NSDateFormatter *dataFormatter = [[NSDateFormatter alloc] init];
+    dataFormatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *timeStr = [dataFormatter stringFromDate:[NSDate date]];
+    
+    // 针对我的服务，文件名不用加后缀
+    NSString *fileName = [user stringByAppendingString:timeStr];
+    
+    // 2.拼接上传路径
+    NSString *uploadUrl = [@"http://127.0.0.1/" stringByAppendingString:fileName];
+    
+    
+    // 3.使用HTTP put 上传
+    [self.httpTool uploadData:UIImageJPEGRepresentation(image, 0.75) url:[NSURL URLWithString:uploadUrl] progressBlock:nil completion:^(NSError *error) {
+        
+        if (!error) {
+            NSLog(@"上传成功");
+            [self sendMsgWithText:uploadUrl bodyType:@"image"];
+        }
+    }];
+    
+    
+    // 图片发送成功，把图片的URL传Openfire的服务
+}
+
 
 @end

@@ -40,11 +40,11 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mio-Nb-TXY" id="BDT-bU-4TL">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="AaI-cd-xzd" kind="show" identifier="chatSegue" id="hAW-EA-1Ju"/>
+                                    <segue destination="AaI-cd-xzd" kind="show" identifier="weixinTochatSegue" id="hAW-EA-1Ju"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -57,7 +57,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWw-ry-grn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="-1630"/>
+            <point key="canvasLocation" x="474" y="-1895"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="4Kj-6T-G5Y">
@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvb-cE-MPW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1510" y="-1630"/>
+            <point key="canvasLocation" x="1746" y="-1743"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="WVn-kj-nwY">
@@ -109,6 +109,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="AaI-cd-xzd" kind="show" identifier="contactsTochatSegue" id="AX4-jm-7hd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -131,7 +134,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSA-lV-QJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="-976"/>
+            <point key="canvasLocation" x="745" y="-976"/>
         </scene>
         <!--添加联系人-->
         <scene sceneID="oey-Ud-oWi">
@@ -148,7 +151,7 @@
                                         <rect key="frame" x="0.0" y="99" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9uv-3s-aPE" id="Cf8-yL-mgR">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jML-1x-une">
@@ -182,7 +185,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80i-JV-us6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511" y="-976"/>
+            <point key="canvasLocation" x="1878" y="-940"/>
         </scene>
         <!--发现-->
         <scene sceneID="CHQ-Fe-iuy">
@@ -197,7 +200,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5cx-QX-iff" id="3ww-Hz-a6U">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -228,7 +231,7 @@
                                         <rect key="frame" x="0.0" y="99" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8K4-4Q-Psd" id="OMP-Nf-OBV">
-                                            <frame key="frameInset" width="342" height="87"/>
+                                            <frame key="frameInset" width="342" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfileHead" translatesAutoresizingMaskIntoConstraints="NO" id="MNV-8y-Z6b">
@@ -305,7 +308,7 @@
                                         <rect key="frame" x="0.0" y="99" width="375" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bR2-EO-4sn" id="F6c-MN-nYv">
-                                            <frame key="frameInset" width="342" height="82"/>
+                                            <frame key="frameInset" width="342" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUf-40-FZ6">
@@ -539,7 +542,7 @@
                                         <rect key="frame" x="0.0" y="99" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s3h-xH-e7M" id="GX7-XN-hMM">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S2l-fk-7ab">
@@ -638,7 +641,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNT-WX-cPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207" y="-1629"/>
+            <point key="canvasLocation" x="-258" y="-1808"/>
         </scene>
     </scenes>
     <resources>
@@ -653,4 +656,7 @@
         <image name="tabbar_me" width="23" height="23"/>
         <image name="tabbar_meHL" width="23" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AX4-jm-7hd"/>
+    </inferredMetricsTieBreakers>
 </document>

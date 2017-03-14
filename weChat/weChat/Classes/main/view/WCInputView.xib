@@ -17,19 +17,34 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHl-nW-vK9">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="1EA-Ho-RHP"/>
+                        <constraint firstAttribute="height" constant="50" id="BES-vC-eCx"/>
+                    </constraints>
+                    <state key="normal" image="TypeSelectorBtn_Black">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="7j5-gM-vCr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="4KM-zH-PlQ"/>
                 <constraint firstItem="7j5-gM-vCr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="Dti-Iu-sAo"/>
                 <constraint firstAttribute="trailing" secondItem="7j5-gM-vCr" secondAttribute="trailing" constant="101" id="FAj-ne-CSq"/>
+                <constraint firstAttribute="trailing" secondItem="NHl-nW-vK9" secondAttribute="trailing" id="OXS-Ur-1Om"/>
                 <constraint firstAttribute="bottom" secondItem="7j5-gM-vCr" secondAttribute="bottom" constant="9" id="Tsi-DU-xh3"/>
+                <constraint firstItem="NHl-nW-vK9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="buL-DT-xxB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="addBtn" destination="NHl-nW-vK9" id="D8X-Fz-f66"/>
                 <outlet property="textView" destination="7j5-gM-vCr" id="Xwb-sm-irZ"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="TypeSelectorBtn_Black" width="35" height="35"/>
+    </resources>
 </document>

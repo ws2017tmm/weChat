@@ -17,5 +17,6 @@
 @import MBProgressHUD;
 #import "WCUserInfo.h"
 #import "WCXMPPTool.h"
+#import "HttpTool.h"
 
 #endif /* Prefix_pch */

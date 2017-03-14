@@ -112,7 +112,7 @@
     XMPPMessageArchiving_Contact_CoreDataObject *contact = _resultsContrl.fetchedObjects[indexPath.row];
     
     //选中表格进行聊天界面
-    [self performSegueWithIdentifier:@"ChatSegue" sender:contact.bareJid];
+    [self performSegueWithIdentifier:@"weixinTochatSegue" sender:contact.bareJid];
 }
 
 #pragma mark - Navigation
