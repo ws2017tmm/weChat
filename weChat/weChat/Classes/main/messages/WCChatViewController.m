@@ -163,6 +163,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     
+    
     // 获取聊天消息对象
     XMPPMessageArchiving_Message_CoreDataObject *msg =  _resultsContrl.fetchedObjects[indexPath.row];
     
