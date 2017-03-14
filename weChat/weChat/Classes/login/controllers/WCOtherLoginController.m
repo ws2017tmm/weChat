@@ -57,11 +57,11 @@
  * 2.调用 AppDelegate的一个login 连接服务并登录
  */
 - (IBAction)loginBtnClick {
+    [self login:self.userField.text];
+    
     WCUserInfo *userInfo = [WCUserInfo sharedWCUserInfo];
     userInfo.user = self.userField.text;
     userInfo.pwd = self.pwdField.text;
-    
-    [self login];
 }
 
 

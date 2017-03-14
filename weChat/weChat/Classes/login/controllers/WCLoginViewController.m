@@ -49,14 +49,13 @@
 
 #pragma mark - 登录
 - (IBAction)loginBtnClick {
-    // 保存数据到单例
+    // 调用父类的登录
+    [self login:self.userLabel.text];
     
+    // 保存数据到单例
     WCUserInfo *userInfo = [WCUserInfo sharedWCUserInfo];
     userInfo.user = self.userLabel.text;
     userInfo.pwd = self.pwdField.text;
-    
-    // 调用父类的登录
-    [self login];
 }
 
 

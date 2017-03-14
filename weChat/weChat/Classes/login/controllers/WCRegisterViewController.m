@@ -70,7 +70,7 @@
     
     //防止循环引用
     __weak typeof(self) selfVc = self;
-    [tool xmppUserRegister:^(XMPPResultType type) {
+    [tool xmppUserRegister:self.userField.text completion:^(XMPPResultType type) {
         [selfVc handleResultType:type];
     }];
 }

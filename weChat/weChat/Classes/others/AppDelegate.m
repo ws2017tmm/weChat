@@ -57,7 +57,7 @@
         self.window.rootViewController = storayobard.instantiateInitialViewController;
         
         // 自动登录服务
-        [[WCXMPPTool sharedWCXMPPTool] xmppUserLogin:nil];
+        [[WCXMPPTool sharedWCXMPPTool] xmppUserLogin:[WCUserInfo sharedWCUserInfo].user completion:nil];
     }
     
     return YES;

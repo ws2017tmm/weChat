@@ -28,6 +28,7 @@
     
     XMPPMessageArchiving *_msgArchiving;//聊天模块
     
+    NSString *_userName;
 }
 
 // 1. 初始化XMPPStream
@@ -98,14 +99,15 @@ WSSingletonM(WCXMPPTool)
     //resource 标识用户登录的客户端 iphone android
     
     // 从沙盒获取用户名
-    NSString *user = nil;
-    if (self.isRegisterOperation) { //注册
-        user = [WCUserInfo sharedWCUserInfo].registerUser;
-    } else { //登录
-        user = [WCUserInfo sharedWCUserInfo].user;
-    }
+//    NSString *user = nil;
+//    if (self.isRegisterOperation) { //注册
+//        user = [WCUserInfo sharedWCUserInfo].registerUser;
+//    } else { //登录
+////        user = [WCUserInfo sharedWCUserInfo].user;
+//        
+//    }
     
-    XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"teacher.local" resource:@"iphone" ];
+    XMPPJID *myJID = [XMPPJID jidWithUser:_userName domain:@"teacher.local" resource:@"iphone" ];
     _xmppStream.myJID = myJID;
     
     // 设置服务器域名
@@ -182,8 +184,6 @@ WSSingletonM(WCXMPPTool)
     if(_resultBlock){
         _resultBlock(XMPPResultTypeLoginSuccess);
     }
-    
-    
 }
 
 
@@ -208,10 +208,16 @@ WSSingletonM(WCXMPPTool)
     [_xmppStream disconnect];
 }
 
--(void)xmppUserLogin:(XMPPResultsBlock)result{
+-(void)xmppUserLogin:(NSString *)userName completion:(XMPPResultsBlock)result {
+    _userName = userName;
     _resultBlock = result;
     
-    // 如果以前连接过服务，要断开
+    // 如果以前没有连接过服务,连接(连接过，不用连接)
+//    NSString *user =[WCUserInfo sharedWCUserInfo].user;
+//    if (![userName isEqualToString:user]) {
+//        // 连接主机 成功后发送密码
+//        [self connectToHost];
+//    }
     [_xmppStream disconnect];
     // 连接主机 成功后发送密码
     [self connectToHost];
@@ -235,7 +241,8 @@ WSSingletonM(WCXMPPTool)
 }
 
 #pragma mark - 注册
--(void)xmppUserRegister:(XMPPResultsBlock)resultBlock{
+-(void)xmppUserRegister:(NSString *)registerName completion:(XMPPResultsBlock)resultBlock{
+    _userName = registerName;
     // 先把block存起来
     _resultBlock = resultBlock;
     

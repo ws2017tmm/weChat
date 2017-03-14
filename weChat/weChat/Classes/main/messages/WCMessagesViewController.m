@@ -27,10 +27,14 @@
      
      */
     
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     // 加载数据
     [self loadContacts];
-    
-    
 }
 
 #pragma mark 加载XMPPMessageArchiving数据库的数据显示在表格
@@ -46,12 +50,12 @@
     // 过滤、排序
     // 1.当前登录用户的JID的消息
     // 2.好友的Jid的消息
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"streamBareJidStr = %@ AND bareJidStr = %@",[WCUserInfo sharedWCUserInfo].jid];
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"streamBareJidStr = %@",[WCUserInfo sharedWCUserInfo].jid];
     NSLog(@"%@",pre);
     request.predicate = pre;
     
     // 时间升序
-    NSSortDescriptor *timeSort = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES];
+    NSSortDescriptor *timeSort = [NSSortDescriptor sortDescriptorWithKey:@"mostRecentMessageTimestamp" ascending:YES];
     request.sortDescriptors = @[timeSort];
     
     // 查询

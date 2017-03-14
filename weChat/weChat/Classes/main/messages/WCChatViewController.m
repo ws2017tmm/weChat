@@ -86,14 +86,6 @@
     
     CGFloat kbHeight =  kbEndFrm.size.height;
     
-    //竖屏{{0, 0}, {768, 264}
-    //横屏{{0, 0}, {352, 1024}}
-    // 如果是ios7以下的，当屏幕是横屏，键盘的高底是size.with
-    if([[UIDevice currentDevice].systemVersion doubleValue] < 8.0
-       && UIInterfaceOrientationIsLandscape(self.interfaceOrientation)){
-        kbHeight = kbEndFrm.size.width;
-    }
-    
     self.inputViewConstraint.constant = kbHeight;
     
     //表格滚动到底部

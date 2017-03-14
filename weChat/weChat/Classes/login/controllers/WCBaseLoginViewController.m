@@ -32,7 +32,7 @@
  * 1.把用户名和密码放在沙盒
  * 2.调用 AppDelegate的一个login 连接服务并登录
  */
-- (void)login {
+- (void)login:(NSString *)userName {
     
     //隐藏键盘
     [self.view endEditing:YES];
@@ -45,7 +45,7 @@
     tool.registerOperation = NO;//登录
     //防止循环引用
     __weak typeof(self) selfVc = self;
-    [tool xmppUserLogin:^(XMPPResultType type) {
+    [tool xmppUserLogin:userName completion:^(XMPPResultType type) {
         [selfVc handleResultType:type];
     }];
     

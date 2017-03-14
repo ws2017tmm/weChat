@@ -12,6 +12,6 @@
 /**
  *  登录
  */
-- (void)login;
+- (void)login:(NSString *)userName;
 
 @end

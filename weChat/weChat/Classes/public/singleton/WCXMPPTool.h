@@ -42,7 +42,8 @@ WSSingletonH(WCXMPPTool)
 /**
  *  用户登录
  */
--(void)xmppUserLogin:(XMPPResultsBlock)result;
+//-(void)xmppUserLogin:(XMPPResultsBlock)result;
+-(void)xmppUserLogin:(NSString *)userName completion:(XMPPResultsBlock)result;
 
 /**
  *  用户注销
@@ -52,6 +53,6 @@ WSSingletonH(WCXMPPTool)
 /**
  *  用户注册
  */
--(void)xmppUserRegister:(XMPPResultsBlock)resultBlock;
+-(void)xmppUserRegister:(NSString *)registerName completion:(XMPPResultsBlock)resultBlock;
 
 @end
