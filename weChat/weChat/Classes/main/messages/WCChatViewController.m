@@ -280,12 +280,10 @@
         
         if (!error) {
             NSLog(@"上传成功");
+            // 图片发送成功，把图片的URL传Openfire的服务
             [self sendMsgWithText:uploadUrl bodyType:@"image"];
         }
     }];
-    
-    
-    // 图片发送成功，把图片的URL传Openfire的服务
 }
 
 
