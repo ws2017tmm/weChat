@@ -9,6 +9,7 @@
 #import "WCChatViewController.h"
 #import "WCInputView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Masonry.h"
 
 @interface WCChatViewController ()<UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate,UITextViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>{
     
@@ -16,8 +17,10 @@
     
 }
 
-@property (nonatomic, strong) NSLayoutConstraint *inputViewConstraint;//inputView底部约束
 @property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, weak) WCInputView *inputViewBar;
+
+@property (nonatomic, strong) MASConstraint *inputViewBottomConstraint;
 
 @property (nonatomic, strong) HttpTool *httpTool;
 
@@ -55,42 +58,33 @@
     UITableView *tableView = [[UITableView alloc] init];
     tableView.delegate = self;
     tableView.dataSource = self;
-#warning 代码实现自动布局，要设置下面的属性为NO
-    tableView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:tableView];
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(64);
+        make.left.equalTo(self.view.left);
+        make.right.equalTo(self.view.right);
+    }];
     self.tableView = tableView;
     
     // 创建输入框View
-    WCInputView *inputView = [WCInputView inputView];
-    inputView.translatesAutoresizingMaskIntoConstraints = NO;
-    // 设置TextView代理
-    inputView.textView.delegate = self;
-    [self.view addSubview:inputView];
-    
+    WCInputView *inputViewBar = [WCInputView inputView];
     // 添加按钮事件
-    [inputView.addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:inputView];
+    [inputViewBar.addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    // 设置TextView代理
+    inputViewBar.textView.delegate = self;
     
-    // 自动布局
+    [self.view addSubview:inputViewBar];
     
-    // 水平方向的约束
-    NSDictionary *views = @{@"tableview":tableView,
-                            @"inputView":inputView};
+    [inputViewBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.tableView.bottom);
+        make.left.equalTo(self.view.left);
+        make.right.equalTo(self.view.right);
+        self.inputViewBottomConstraint = make.bottom.equalTo(self.view.bottom);
+        make.height.mas_equalTo(44);
+    }];
     
-    // 1.tabview水平方向的约束
-    NSArray *tabviewHConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[tableview]-0-|" options:0 metrics:nil views:views];
-    [self.view addConstraints:tabviewHConstraints];
-    
-    // 2.inputView水平方向的约束
-    NSArray *inputViewHConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[inputView]-0-|" options:0 metrics:nil views:views];
-    [self.view addConstraints:inputViewHConstraints];
-    
-    
-    // 垂直方向的约束
-    NSArray *vContraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[tableview]-0-[inputView(50)]-0-|" options:0 metrics:nil views:views];
-    [self.view addConstraints:vContraints];
-    self.inputViewConstraint = [vContraints lastObject];
-    NSLog(@"%@",vContraints);
+    self.inputViewBar = inputViewBar;
 }
 
 -(void)keyboardWillShow:(NSNotification *)noti{
@@ -100,8 +94,9 @@
     
     CGFloat kbHeight =  kbEndFrm.size.height;
     
-    self.inputViewConstraint.constant = kbHeight;
-    
+    //更新约束
+    [self.inputViewBottomConstraint uninstall];
+    self.inputViewBottomConstraint.mas_equalTo(kbHeight);
     //表格滚动到底部
     [self scrollToTableBottom];
     
@@ -109,7 +104,8 @@
 
 -(void)keyboardWillHide:(NSNotification *)noti{
     // 隐藏键盘的进修 距离底部的约束永远为0
-    self.inputViewConstraint.constant = 0;
+    [self.inputViewBottomConstraint uninstall];
+    self.inputViewBottomConstraint.equalTo(self.view.bottom);
 }
 
 

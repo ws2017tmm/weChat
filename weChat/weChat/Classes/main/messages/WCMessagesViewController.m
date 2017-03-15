@@ -26,15 +26,10 @@
        2.显示到tableView上
      
      */
-    
-    
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     // 加载数据
     [self loadContacts];
+    
+    
 }
 
 #pragma mark 加载XMPPMessageArchiving数据库的数据显示在表格

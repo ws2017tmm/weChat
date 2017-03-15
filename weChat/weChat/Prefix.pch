@@ -19,4 +19,6 @@
 #import "WCXMPPTool.h"
 #import "HttpTool.h"
 
+#define MAS_SHORTHAND
+
 #endif /* Prefix_pch */

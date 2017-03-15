@@ -7,6 +7,7 @@
 //
 
 #import "WCContactsViewController.h"
+#import "WCChatViewController.h"
 
 @interface WCContactsViewController ()<NSFetchedResultsControllerDelegate>{
     NSFetchedResultsController *_resultsContrl;
@@ -109,6 +110,27 @@
     cell.imageView.image = friend.photo;
     NSLog(@"%@",friend.photo);
     return cell;
+}
+
+
+
+#pragma mark - Table view delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //获取好友
+    XMPPUserCoreDataStorageObject *friend = _resultsContrl.fetchedObjects[indexPath.row];
+    
+    //选中表格进行聊天界面
+    [self performSegueWithIdentifier:@"ChatSegue" sender:friend.jid];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    id destVc = segue.destinationViewController;
+    
+    if ([destVc isKindOfClass:[WCChatViewController class]]) {
+        WCChatViewController *chatVc = destVc;
+        chatVc.friendJid = sender;
+    }
 }
 
 //实现这个方法，cell往左滑就会有个delete
