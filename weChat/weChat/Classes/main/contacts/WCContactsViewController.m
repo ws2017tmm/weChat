@@ -121,7 +121,7 @@
     XMPPUserCoreDataStorageObject *friend = _resultsContrl.fetchedObjects[indexPath.row];
     
     //选中表格进行聊天界面
-    [self performSegueWithIdentifier:@"ChatSegue" sender:friend.jid];
+    [self performSegueWithIdentifier:@"contactsTochatSegue" sender:friend.jid];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

@@ -20,7 +20,6 @@
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, weak) WCInputView *inputViewBar;
 
-@property (nonatomic, strong) MASConstraint *inputViewBottomConstraint;
 
 @property (nonatomic, strong) HttpTool *httpTool;
 
@@ -56,12 +55,13 @@
     // 代码方式实现自动布局 VFL
     // 创建一个Tableview;
     UITableView *tableView = [[UITableView alloc] init];
+//    tableView.backgroundColor = [UIColor redColor];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(64);
+        make.top.equalTo(self.view.top);
         make.left.equalTo(self.view.left);
         make.right.equalTo(self.view.right);
     }];
@@ -80,7 +80,7 @@
         make.top.equalTo(self.tableView.bottom);
         make.left.equalTo(self.view.left);
         make.right.equalTo(self.view.right);
-        self.inputViewBottomConstraint = make.bottom.equalTo(self.view.bottom);
+        make.bottom.equalTo(self.view.bottom);
         make.height.mas_equalTo(44);
     }];
     
@@ -91,12 +91,20 @@
     NSLog(@"%@",noti);
     // 获取键盘的高度
     CGRect kbEndFrm = [noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat keyboardDuration = [noti.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
     CGFloat kbHeight =  kbEndFrm.size.height;
     
     //更新约束
-    [self.inputViewBottomConstraint uninstall];
-    self.inputViewBottomConstraint.mas_equalTo(kbHeight);
+    [self.inputViewBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.bottom).offset(-kbHeight);
+    }];
+    // 更新约束
+    [UIView animateWithDuration:keyboardDuration animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+    }];
     //表格滚动到底部
     [self scrollToTableBottom];
     
@@ -104,8 +112,17 @@
 
 -(void)keyboardWillHide:(NSNotification *)noti{
     // 隐藏键盘的进修 距离底部的约束永远为0
-    [self.inputViewBottomConstraint uninstall];
-    self.inputViewBottomConstraint.equalTo(self.view.bottom);
+    [self.inputViewBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.bottom);
+    }];
+    
+    CGFloat keyboardDuration = [noti.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    // 更新约束
+    [UIView animateWithDuration:keyboardDuration animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+    }];
 }
 
 
@@ -148,6 +165,7 @@
 
 #pragma mark - 表格的数据源
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"_resultsContrl.fetchedObjects.count = %zd",_resultsContrl.fetchedObjects.count);
     return _resultsContrl.fetchedObjects.count;
 }
 
@@ -163,19 +181,19 @@
     // 获取聊天消息对象
     XMPPMessageArchiving_Message_CoreDataObject *msg =  _resultsContrl.fetchedObjects[indexPath.row];
     
+    NSLog(@"msg.body = %@",msg.body);
     // 判断是图片还是纯文本
     NSString *chatType = [msg.message attributeStringValueForName:@"bodyType"];
     if ([chatType isEqualToString:@"image"]) {
         //下图片显示
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:msg.body] placeholderImage:[UIImage imageNamed:@"DefaultProfileHead_qq"]];
         cell.textLabel.text = nil;
-    }else if([chatType isEqualToString:@"text"]){
-        
+    }else if([chatType isEqualToString:@"chat"]){
         //显示消息
-        if ([msg.outgoing boolValue]) {//自己发
-            cell.textLabel.text = msg.body;
+        if (msg.isOutgoing) {//自己发
+            cell.textLabel.text = [NSString stringWithFormat:@"Me: %@",msg.body];
         }else{//别人发的
-            cell.textLabel.text = msg.body;
+            cell.textLabel.text = [NSString stringWithFormat:@"Other: %@",msg.body];
         }
         
         cell.imageView.image = nil;
@@ -198,7 +216,7 @@
     // 换行就等于点击了的send
     if ([text rangeOfString:@"\n"].length != 0) {
         NSLog(@"发送数据 %@",text);
-        [self sendMsgWithText:text bodyType:@"text"];
+        [self sendMsgWithText:text bodyType:@"chat"];
         //清空数据
         textView.text = nil;
         
@@ -227,6 +245,7 @@
 
 #pragma mark 滚动到底部
 -(void)scrollToTableBottom{
+    if (!_resultsContrl.fetchedObjects.count) return;
     NSInteger lastRow = _resultsContrl.fetchedObjects.count - 1;
     NSIndexPath *lastPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     
@@ -258,7 +277,7 @@
      * put实现文件上传没post那烦锁，而且比POST快
      * put的文件上传路径就是下载路径
      
-     *文件上传路径 http://localhost:8080/imfileserver/Upload/Image/ + "图片名【程序员自已定义】"
+     *文件上传路径 http://127.0.0.1/ + "图片名"
      */
     
     // 1.取文件名 用户名 + 时间(201412111537)年月日时分秒
@@ -268,7 +287,7 @@
     dataFormatter.dateFormat = @"yyyyMMddHHmmss";
     NSString *timeStr = [dataFormatter stringFromDate:[NSDate date]];
     
-    // 针对我的服务，文件名不用加后缀
+    //
     NSString *fileName = [user stringByAppendingString:timeStr];
     
     // 2.拼接上传路径

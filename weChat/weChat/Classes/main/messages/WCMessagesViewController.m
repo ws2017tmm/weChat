@@ -88,7 +88,11 @@
     cell.textLabel.text = msg.bareJid.user;
     //最近消息
     cell.detailTextLabel.text = msg.mostRecentMessageBody;
-    
+//    NSString *chatType = [msg.message attributeStringValueForName:@"bodyType"];
+//    if ([chatType isEqualToString:@"image"]) {
+//        cell.detailTextLabel.text = @"[图片]";
+//    }
+
     return cell;
 }
 
