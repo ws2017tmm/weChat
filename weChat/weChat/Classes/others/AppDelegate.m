@@ -41,9 +41,6 @@
     DDLogWarn(@"Warn");          // orange
     DDLogError(@"Error");        // red
     
-    
-    
-    
     //设置导航栏样式
     [WCNavController setupNavTheme];
     
@@ -59,6 +56,10 @@
         // 自动登录服务
         [[WCXMPPTool sharedWCXMPPTool] xmppUserLogin:[WCUserInfo sharedWCUserInfo].user completion:nil];
     }
+    
+    //注册本地通知
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    [application registerUserNotificationSettings:settings];
     
     return YES;
 }

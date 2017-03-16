@@ -272,6 +272,33 @@ WSSingletonM(WCXMPPTool)
     
 }
 
+#pragma mark 接收到好友消息
+-(void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
+    NSLog(@"%@",message);
+    
+    //如果当前程序不在前台，发出一个本地通知
+    if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
+        NSLog(@"在后台");
+        
+        //本地通知
+        UILocalNotification *localNoti = [[UILocalNotification alloc] init];
+        
+        // 设置内容
+        localNoti.alertBody = [NSString stringWithFormat:@"%@\n%@",message.fromStr,message.body];
+        
+        // 设置通知执行时间
+        localNoti.fireDate = [NSDate date];
+        
+        //声音
+        localNoti.soundName = @"default";
+        
+        //执行
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNoti];
+        
+    }
+}
+
+
 - (void)dealloc {
     [self teardownStream];
 }
